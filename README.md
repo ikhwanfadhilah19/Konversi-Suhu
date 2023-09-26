@@ -1,3 +1,7 @@
+## How to run?
+
+Run with terminal VSC or CMD in your device.
+
 ## For Feedback/Problem
 
 DM me on Instagram [Here](https://www.instagram.com/ikhhwann_/)
