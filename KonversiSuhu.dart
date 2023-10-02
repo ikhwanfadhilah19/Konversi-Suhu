@@ -1,58 +1,76 @@
 import 'dart:io';
 
 void main() {
-  // Copyright : Ikhwanf.
-  print('==========================');
-  print('| Aplikasi Konversi Suhu |');
-  print('==========================');
-  print('| 1. Celcius             |');
-  print('| 2. Reamur              |');
-  print('| 3. Fahrenheit          |');
-  print('| 4. Kelvin              |');
-  print('| 5. Keluar              |');
-  print('==========================');
+  // Watermark : Ikhwanfadhilah.
+  print('============================================');
+  print('|          Aplikasi Konversi Suhu          |');
+  print('============================================');
+  print('|    1. Celcius                            |');
+  print('|    2. Reamur                             |');
+  print('|    3. Fahrenheit                         |');
+  print('|    4. Kelvin                             |');
+  print('|    5. Keluar                             |');
+  print('============================================');
   stdout.write('Masukkan pilihan: ');
   var menu = int.parse(stdin.readLineSync()!);
   switch (menu) {
     case 1:
-      celcius();
+      Celcius();
       break;
     case 2:
-      reamur();
+      Reamur();
       break;
     case 3:
-      fahrenheit();
+      Fahrenheit();
       break;
     case 4:
-      kelvin();
+      Kelvin();
       break;
     case 5:
-      keluar();
+      Keluar();
       break;
     default:
       print('Pilihan tidak ditemukan.');
   }
 }
 
-void celcius() {
+void Celcius() {
   stdout.write('Masukkan suhu dalam Celcius: ');
   var celcius = num.parse(stdin.readLineSync()!);
 
-  //Input Rumus Konversi Celcius
+  //Input rumus konversi celcius
   var reamur = (4 / 5) * celcius;
   var fahrenheit = (9 / 5 * celcius) + 32;
   var kelvin = celcius + 273;
 
-  //Cetak Hasil Konversi
-  print('$celcius derajat Celcius = $reamur derajat Reamur');
-  print('$celcius derajat Celcius = $fahrenheit derajat Fahrenheit');
-  print('$celcius derajat Celcius = $kelvin derajat Kelvin\n');
+  //Cetak hasil konversi
+  stdout.write('\nCetak hasil konversi? ');
+  String hasil = stdin.readLineSync()!;
 
-  //Kembali Ke Menu Awal
-  main();
+  if (hasil == 'iya') {
+    //Jika iya maka akan menampilkan hasil konversi yang dipilih
+    print('$celcius derajat Celcius = $reamur derajat Reamur');
+    print('$celcius derajat Celcius = $fahrenheit derajat Fahrenheit');
+    print('$celcius derajat Celcius = $kelvin derajat Kelvin\n');
+  } else {
+    //Jika tidak maka akan kembali untuk input ulang nilai konversi yang dipilih
+    Celcius();
+  }
+
+  //Pertanyaan konversi ulang pada menu awal
+  stdout.write('Apakah anda ingin konversi ulang? ');
+  String ulang = stdin.readLineSync()!;
+
+  if (ulang == 'iya') {
+    //Jika iya maka akan kembali ke menu pilihan awal
+    main();
+  } else {
+    //Jika tidak maka akan menutup program
+    exit(0);
+  }
 }
 
-void reamur() {
+void Reamur() {
   stdout.write('Masukkan suhu dalam Reamur: ');
   var reamur = num.parse(stdin.readLineSync()!);
 
@@ -61,16 +79,30 @@ void reamur() {
   var fahrenheit = (9 / 4 * reamur) + 32;
   var kelvin = (5 / 4 * reamur) + 273;
 
-  //Cetak Hasil Konversi
-  print('$reamur derajat Reamur = $celcius derajat Celcius');
-  print('$reamur derajat Reamur = $fahrenheit derajat Fahrenheit');
-  print('$reamur derajat Reamur = $kelvin derajat Kelvin\n');
+  //Cetak hasil konversi
+  stdout.write('\nCetak hasil konversi? ');
+  String hasil = stdin.readLineSync()!;
 
-  //Kembali Ke Menu Awal
-  main();
+  if (hasil == 'iya') {
+    print('$reamur derajat Reamur = $celcius derajat Celcius');
+    print('$reamur derajat Reamur = $fahrenheit derajat Fahrenheit');
+    print('$reamur derajat Reamur = $kelvin derajat Kelvin\n');
+  } else {
+    Reamur();
+  }
+
+  //Pernyataan Konversi Ulang
+  stdout.write('Apakah anda ingin konversi ulang? ');
+  String ulang = stdin.readLineSync()!;
+
+  if (ulang == 'iya') {
+    main();
+  } else {
+    exit(0);
+  }
 }
 
-void fahrenheit() {
+void Fahrenheit() {
   stdout.write('Masukkan suhu dalam Fahrenheit: ');
   var fahrenheit = num.parse(stdin.readLineSync()!);
 
@@ -80,15 +112,30 @@ void fahrenheit() {
   var kelvin = 5 / 9 * (fahrenheit - 32) + 273;
 
   //Cetak Hasil Konversi
-  print('$fahrenheit derajat Fahrenheit = $celcius derajat Celcius');
-  print('$fahrenheit derajat Fahrenheit = $reamur derajat Reamur');
-  print('$fahrenheit derajat Fahrenheit = $kelvin derajat Kelvin\n');
+  stdout.write('\nCetak hasil konversi? ');
+  String hasil = stdin.readLineSync()!;
 
-  //Kembali Ke Menu Awal
-  main();
+  if (hasil == 'iya') {
+    print('$fahrenheit derajat Fahrenheit = $celcius derajat Celcius');
+    print('$fahrenheit derajat Fahrenheit = $reamur derajat Reamur');
+    print('$fahrenheit derajat Fahrenheit = $kelvin derajat Kelvin\n');
+  } else {
+    //Jika tidak maka akan kembali untuk input ulang nilai konversi
+    Fahrenheit();
+  }
+
+  //Pernyataan Konversi Ulang
+  stdout.write('Apakah anda ingin konversi ulang? ');
+  String ulang = stdin.readLineSync()!;
+
+  if (ulang == 'iya') {
+    main();
+  } else {
+    exit(0);
+  }
 }
 
-void kelvin() {
+void Kelvin() {
   stdout.write('Masukkan suhu dalam Kelvin: ');
   var kelvin = num.parse(stdin.readLineSync()!);
 
@@ -98,16 +145,30 @@ void kelvin() {
   var fahrenheit = 9 / 5 * (kelvin - 273) + 32;
 
   //Cetak Hasil Konversi
-  print('$kelvin derajat Kelvin = $celcius derajat Celcius');
-  print('$kelvin derajat Kelvin = $reamur derajat Reamur');
-  print('$kelvin derajat Kelvin = $fahrenheit derajat Fahrenheit\n');
+  stdout.write('\nCetak hasil konversi? ');
+  String hasil = stdin.readLineSync()!;
 
-  //Kembali Ke Menu Awal
-  main();
+  if (hasil == 'iya') {
+    print('$kelvin derajat Kelvin = $celcius derajat Celcius');
+    print('$kelvin derajat Kelvin = $reamur derajat Reamur');
+    print('$kelvin derajat Kelvin = $fahrenheit derajat Fahrenheit\n');
+  } else {
+    Reamur();
+  }
+
+  //Pernyataan Konversi Ulang
+  stdout.write('Apakah anda ingin konversi ulang? ');
+  String ulang = stdin.readLineSync()!;
+
+  if (ulang == 'iya') {
+    main();
+  } else {
+    exit(0);
+  }
 }
 
-void keluar() {
-  stdout.write('Apakah anda ingin keluar dari program? [iya/tidak]: ');
+void Keluar() {
+  stdout.write('Apakah anda ingin keluar dari program? ');
   String esc = stdin.readLineSync()!;
 
   if (esc.toLowerCase() == 'iya') {
